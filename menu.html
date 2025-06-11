@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HONEY FOOD</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header class="header">
+  <img src="Images/logopng.png" alt="Logo de Honey Food" class="logo" />
+  <h1 class="title" data-i18n="title">HONEY FOOD</h1>
+
+  <!-- Navegación visible en escritorio -->
+  <nav class="nav-desktop">
+    <a href="home.html" class="nav-link" data-i18n="home">Home</a>
+    <a href="aboutus.html" class="nav-link" data-i18n="about_us">Sobre Nosotros</a>
+  </nav>
+
+  <!-- Menú hamburguesa (visible solo en móvil) -->
+  <div class="hamburger" onclick="toggleMobileMenu()">
+    <div class="line"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+  <nav id="mobile-menu" class="nav-mobile hidden">
+    <a href="home.html" data-i18n="home">Home</a>
+    <a href="aboutus.html" data-i18n="about_us">Sobre Nosotros</a>
+  </nav>
+</header>
+
+<!-- Contenedor principal de productos -->
+<div class="filtro-menu">
+  <input type="text" id="buscador" data-i18n="search_placeholder" placeholder="" />
+</div>
+
+<div class="container">
+  <!-- Producto 1 -->
+  <div class="product-card">
+    <div class="card-background"></div>
+    <h3 data-i18n="product_arepa_choclo">Arepa de Choclo</h3>
+    <img src="Images/chocloHF.jpeg" alt="Arepa de Choclo" />
+    <p data-i18n="desc_arepa_choclo">Deliciosa arepa de maíz dulce, ideal para acompañar tu comida.</p>
+    <button class="add-to-cart" data-product="Arepa de Choclo" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="product-card">
+    <h3 data-i18n="product_papas_chorreadas">Papas Chorreadas</h3>
+    <img src="Images/papaschorreadasHF.jpeg" alt="Papas Chorreadas" />
+    <p data-i18n="desc_papas_chorreadas">Papas con salsa de queso y bacon, un plato lleno de sabor.</p>
+    <button class="add-to-cart" data-product="Papas Chorreadas" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="product-card">
+    <h3 data-i18n="product_hogao">Hogao</h3>
+    <img src="Images/hogaoHF.jpeg" alt="Hogao" />
+    <p data-i18n="desc_hogao">Salsa tradicional colombiana, ideal para acompañar tus platos favoritos.</p>
+    <button class="add-to-cart" data-product="Hogao" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 4 -->
+  <div class="product-card">
+    <h3 data-i18n="product_chicharron_arepa">Chicharron con Arepa</h3>
+    <img src="Images/chicharronHF.jpeg" alt="Chicharron" />
+    <p data-i18n="desc_chicharron_arepa">Exquisitos chicharrones colombianos, preparados al mejor estilo.</p>
+    <button class="add-to-cart" data-product="Chicharron con Arepa" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 5 -->
+  <div class="product-card">
+    <h3 data-i18n="product_rellenas">Rellenas</h3>
+    <img src="Images/rellena.jpg" alt="Rellena" />
+    <p data-i18n="desc_rellenas">Empanadas rellenas de carne, pollo o queso, perfectas para cualquier momento.</p>
+    <button class="add-to-cart" data-product="Rellenas" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 6 -->
+  <div class="product-card">
+    <h3 data-i18n="product_hamburguesas">Hamburguesas</h3>
+    <img src="Images/hamburguesaHF.jpeg" alt="Hamburguesa" />
+    <p data-i18n="desc_hamburguesas">Hamburguesas jugosas con carne 100% fresca, acompañadas de lo mejor.</p>
+    <button class="add-to-cart" data-product="Hamburguesas" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 7 -->
+  <div class="product-card">
+    <h3 data-i18n="product_papas_locas">Papas Locas</h3>
+    <img src="Images/papaslocasHF.jpeg" alt="Papas Locas" />
+    <p data-i18n="desc_papas_locas">Papas fritas con salsas y toppings irresistibles.</p>
+    <button class="add-to-cart" data-product="Papas Locas" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 8 -->
+  <div class="product-card">
+    <h3 data-i18n="product_morrongos">Morrongos</h3>
+    <img src="Images/morrongo.png" alt="Morrongo" />
+    <p data-i18n="desc_morrongos">Un plato típico que no te puedes perder, preparado con todo el sabor colombiano.</p>
+    <button class="add-to-cart" data-product="Morrongos" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 9 -->
+  <div class="product-card">
+    <h3 data-i18n="product_salchipapas">Salchipapas</h3>
+    <img src="Images/salchipapa.jpg" alt="Salchipapa" />
+    <p data-i18n="desc_salchipapas">Salchichas acompañadas de papas fritas, un clásico que todos disfrutan.</p>
+    <button class="add-to-cart" data-product="Salchipapas" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 10 -->
+  <div class="product-card">
+    <h3 data-i18n="product_desgranados">Desgranados</h3>
+    <img src="Images/desgranado.png" alt="Desgranado" />
+    <p data-i18n="desc_desgranados">Deliciosa mezcla de arroz, frijoles y carne, perfecta para cualquier ocasión.</p>
+    <button class="add-to-cart" data-product="Desgranado" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 11 -->
+  <div class="product-card">
+    <h3 data-i18n="product_salsa_tartara">Salsa Tártara</h3>
+    <img src="Images/tartara.webp" alt="Salsa Tartara" />
+    <p data-i18n="desc_salsa_tartara">Salsa cremosa perfecta para acompañar carnes y pescados.</p>
+    <button class="add-to-cart" data-product="Salsa Tártara" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 12 -->
+  <div class="product-card">
+    <h3 data-i18n="product_salsa_pina">Salsa de Piña</h3>
+    <img src="Images/piña.jpg" alt="Salsa Piña" />
+    <p data-i18n="desc_salsa_pina">Salsa de piña fresca, el toque dulce perfecto para tus platos.</p>
+    <button class="add-to-cart" data-product="Salsa de Piña" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 13 -->
+  <div class="product-card">
+    <h3 data-i18n="product_empanadas">Empanadas</h3>
+    <img src="Images/empanadas.jpg" alt="Empanadas" />
+    <p data-i18n="desc_empanadas">Empanadas rellenas con carne o pollo, un bocado delicioso.</p>
+    <button class="add-to-cart" data-product="Empanadas" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+
+  <!-- Producto 14 -->
+  <div class="product-card">
+    <h3 data-i18n="product_perros_calientes">Perros Calientes</h3>
+    <img src="Images/perroscalientesHF.jpeg" alt="Perros Calientes" />
+    <p data-i18n="desc_perros_calientes">Sabrosos perritos calientes, una opción rápida y deliciosa.</p>
+    <button class="add-to-cart" data-product="Perros Calientes" data-i18n="add_to_cart">Agregar al carrito</button>
+  </div>
+</div>
+
+<!-- Panel flotante del carrito -->
+<div id="cart-panel">
+  <button class="close-cart" onclick="cerrarCarrito()" aria-label="Cerrar carrito">×</button>
+  <h3 data-i18n="your_order">Tu pedido</h3>
+  <ul id="cart-items"></ul>
+  <button class="btn-enviar" onclick="enviarPedido()" data-i18n="send_order">Enviar pedido por WhatsApp</button>
+  <button class="btn-enviar" onclick="vaciarCarrito()" data-i18n="empty_cart">🗑️ Vaciar carrito</button>
+</div>
+
+<!-- Botón flotante del carrito -->
+<div id="cart-button" onclick="abrirCarrito()" aria-label="Abrir carrito">
+  🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- Botón volver arriba -->
+<button id="scrollTopBtn" aria-label="Volver arriba" data-i18n="scroll_top">🔝</button>
+
+<footer>
+  <p>&copy; 2025 HONEY FOOD | <span data-i18n="footer_text">Colombian Street Food in Toronto | Made with ❤️ by entrepreneurs</span></p>
+</footer>
+<script src="language.js"></script>
+
+<!-- Script principal -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cart = [];
+    const precios = {
+      "Arepa de Choclo": 9.0,
+      "Papas Chorreadas": 10.0,
+      "Hogao": 6.0,
+      "Chicharron con Arepa": 12.0,
+      "Rellenas": 6.0,
+      "Hamburguesas": 20.0,
+      "Morrongo": 18.0,
+      "Papas Locas": 30.0,
+      "Salchipapa": 19.0,
+      "Desgranado": 19.0,
+      "Salsa Tártara": 6.0,
+      "Salsa de Piña": 6.0,
+      "Empanadas": 5.0,
+      "Perros Calientes": 18.0,
+    };
+
+    const guardado = localStorage.getItem("carritoHoneyFood");
+    if (guardado) cart.push(...JSON.parse(guardado));
+
+    const buscador = document.getElementById("buscador");
+    const cards = document.querySelectorAll(".product-card");
+    const cartItems = document.getElementById("cart-items");
+    const cartCount = document.getElementById("cart-count");
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    // Menú móvil
+    window.toggleMobileMenu = () => {
+      document.getElementById("mobile-menu")?.classList.toggle("hidden");
+    };
+
+    // Hover blur entre tarjetas
+    cards.forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        cards.forEach(other => {
+          if (other !== card) other.classList.add("blurred");
+        });
+      });
+      card.addEventListener("mouseleave", () => {
+        cards.forEach(other => other.classList.remove("blurred"));
+      });
+    });
+
+    // Filtro de búsqueda
+    buscador?.addEventListener("input", function () {
+      const termino = this.value.toLowerCase();
+      cards.forEach(card => {
+        const titulo = card.querySelector("h3")?.textContent.toLowerCase() || "";
+        const descripcion = card.querySelector("p")?.textContent.toLowerCase() || "";
+        card.style.display = (titulo.includes(termino) || descripcion.includes(termino)) ? "block" : "none";
+      });
+    });
+
+    // Agregar al carrito
+    document.querySelectorAll(".add-to-cart").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const nombre = btn.dataset.product;
+        const idx = cart.findIndex(item => item.nombre === nombre);
+        if (idx >= 0) cart[idx].cantidad++;
+        else cart.push({ nombre, cantidad: 1 });
+        actualizarCarrito();
+        mostrarToast(`${nombre} agregado al carrito`);
+      });
+    });
+
+    function actualizarCarrito() {
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, i) => {
+        const precio = precios[item.nombre] ?? 0;
+        const subtotal = precio * item.cantidad;
+        total += subtotal;
+
+        const li = document.createElement("li");
+        li.className = "flex justify-between items-center bg-[#fff7ec] p-3 rounded shadow text-sm";
+        li.innerHTML = `
+          <div>
+            <span class="font-semibold">${item.nombre}</span><br>
+            <span class="text-xs text-orange-700">$${precio.toFixed(2)} c/u</span>
+          </div>
+          <div class="flex flex-col items-end text-xs">
+            <div class="flex items-center gap-1 mb-1">
+              <button onclick="cambiarCantidad(${i}, -1)" class="px-2 py-0.5 rounded bg-red-100 hover:bg-red-200 text-red-600 border border-red-300">–</button>
+              <span class="mx-1">${item.cantidad}</span>
+              <button onclick="cambiarCantidad(${i}, 1)" class="px-2 py-0.5 rounded bg-green-100 hover:bg-green-200 text-green-700 border border-green-300">+</button>
+            </div>
+            <span>Subtotal: $${subtotal.toFixed(2)}</span>
+            <button onclick="eliminarDelCarrito(${i})" class="text-white text-xs mt-1 px-2 py-1 rounded bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-500 hover:to-orange-600">Eliminar</button>
+          </div>`;
+        cartItems.appendChild(li);
+      });
+
+      const totalDiv = document.createElement("div");
+      totalDiv.className = "mt-4 text-right font-bold text-orange-800 border-t pt-2";
+      totalDiv.textContent = `Total: $${total.toFixed(2)}`;
+      cartItems.appendChild(totalDiv);
+
+      cartCount.textContent = cart.reduce((sum, item) => sum + item.cantidad, 0);
+      localStorage.setItem("carritoHoneyFood", JSON.stringify(cart));
+    }
+
+    // Funciones globales
+    window.cambiarCantidad = (idx, delta) => {
+      cart[idx].cantidad += delta;
+      if (cart[idx].cantidad <= 0) cart.splice(idx, 1);
+      actualizarCarrito();
+    };
+
+    window.eliminarDelCarrito = idx => {
+      cart.splice(idx, 1);
+      actualizarCarrito();
+    };
+
+    window.vaciarCarrito = () => {
+      cart.length = 0;
+      localStorage.removeItem("carritoHoneyFood");
+      actualizarCarrito();
+      mostrarToast("Carrito vaciado");
+    };
+
+    window.enviarPedido = () => {
+      if (cart.length === 0) return mostrarToast("Tu carrito está vacío");
+
+      let total = 0;
+      const mensaje = "¡Hola! Quiero hacer un pedido:\n\n" + cart.map((item, i) => {
+        const precio = precios[item.nombre] ?? 0;
+        const subtotal = precio * item.cantidad;
+        total += subtotal;
+        return `${i + 1}. ${item.nombre} (x${item.cantidad}) - $${subtotal.toFixed(2)}`;
+      }).join("\n") + `\n\n🧾 Total: $${total.toFixed(2)}`;
+
+      window.open(`https://wa.me/16472951328?text=${encodeURIComponent(mensaje)}`, "_blank");
+
+      cart.length = 0;
+      localStorage.removeItem("carritoHoneyFood");
+      actualizarCarrito();
+      mostrarToast("Pedido enviado. Carrito reiniciado.");
+    };
+
+    window.abrirCarrito = () => {
+      const panel = document.getElementById("cart-panel");
+      panel?.classList.remove("hidden");
+      void panel.offsetWidth;
+      panel?.classList.add("visible");
+    };
+
+    window.cerrarCarrito = () => {
+      const panel = document.getElementById("cart-panel");
+      panel?.classList.remove("visible");
+      setTimeout(() => panel?.classList.add("hidden"), 300);
+    };
+
+    function mostrarToast(texto) {
+      const toast = document.createElement("div");
+      toast.className = "toast";
+      toast.innerText = texto;
+      toast.style.bottom = `${30 + document.querySelectorAll(".toast").length * 70}px`;
+      document.body.appendChild(toast);
+      setTimeout(() => toast.classList.add("visible"), 10);
+      setTimeout(() => {
+        toast.classList.remove("visible");
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        scrollTopBtn.classList.add("visible");
+      } else {
+        scrollTopBtn.classList.remove("visible");
+      }
+    });
+
+    scrollTopBtn?.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    actualizarCarrito();
+
+    // -----------------------------------
+    // Función para actualizar textos según idioma
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (translations[lang] && translations[lang][key]) {
+          if ("placeholder" in el && el.tagName.toLowerCase() !== "img") {
+            // Actualizar placeholder solo si existe y no es imagen
+            el.placeholder = translations[lang][key];
+          } else if (el.hasAttribute("aria-label")) {
+            el.setAttribute("aria-label", translations[lang][key]);
+          } else if (el.tagName.toLowerCase() === "img") {
+            el.alt = translations[lang][key];
+          } else {
+            el.textContent = translations[lang][key];
+          }
+        }
+      });
+    }
+
+    // Obtener idioma guardado o usar español por defecto
+    const savedLang = localStorage.getItem('language') || 'es';
+    setLanguage(savedLang);
+
+    // Ejemplo: si tienes botones para cambiar idioma, aquí puedes agregar evento
+    // document.getElementById('btn-es').addEventListener('click', () => {
+    //   localStorage.setItem('language', 'es');
+    //   setLanguage('es');
+    // });
+    // document.getElementById('btn-en').addEventListener('click', () => {
+    //   localStorage.setItem('language', 'en');
+    //   setLanguage('en');
+    // });
+
+  });
+</script>
+
+</body>
+</html>

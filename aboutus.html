@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HONEY FOOD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+    <img src="Images/logopng.png" alt="Logo de Honey Food" class="logo" />
+    <h1 class="title" data-i18n="title">HONEY FOOD</h1>
+
+    <nav class="nav-desktop">
+      <a href="home.html" class="nav-link" data-i18n="home">Home</a>
+      <a href="menu.html" class="nav-link" data-i18n="menu">Menu</a>
+    </nav>
+
+    <div class="hamburger" onclick="toggleMobileMenu()">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <nav id="mobile-menu" class="nav-mobile hidden">
+      <a href="home.html" data-i18n="home">Home</a>
+      <a href="menu.html" data-i18n="menu">Menu</a>
+    </nav>
+  </header>
+
+  <div class="content-wrapper">
+    <div class="left-column">
+      <img src="Images/COLOMBIA.jpeg" alt="Colombia" />
+    </div>
+
+    <div class="right-column">
+      <h1 class="title" data-i18n="social_media">SOCIAL MEDIA</h1>
+      <ul id="socialmedia">
+        <li>
+          <img src="Images/tiktok.webp" alt="TikTok" class="icon" />
+          <a href="https://www.tiktok.com/@camiloaza08" target="_blank">@camiloaza08</a>
+        </li>
+        <li>
+          <img src="Images/instagram.jpg" alt="Instagram" class="icon" />
+          <a href="https://www.instagram.com/honeyfoodc" target="_blank">@honeyfoodc</a>
+        </li>
+        <li>
+          <img src="Images/Whatsapp.png" alt="WhatsApp" class="icon" />
+          <a href="https://wa.me/+16472351328" target="_blank">+1 (647)295-1328</a>
+        </li>
+        <li>
+          <img src="Images/phone.png" alt="Teléfono" class="icon" />
+          <a href="tel:+16472951328">+1 (647)-295-1328</a>
+        </li>
+      </ul>
+
+      <table>
+        <caption data-i18n="opening_hours">Horarios de Apertura</caption>
+        <thead>
+          <tr>
+            <th data-i18n="day">Día</th>
+            <th data-i18n="open_time">Hora de Apertura</th>
+            <th data-i18n="close_time">Hora de Cierre</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-dia="Viernes" class="highlight">
+            <td data-i18n="friday">Viernes</td>
+            <td>5:00 PM</td>
+            <td>11:00 PM</td>
+          </tr>
+          <tr data-dia="Sábado">
+            <td data-i18n="saturday">Sábado</td>
+            <td>5:00 PM</td>
+            <td>11:00 PM</td>
+          </tr>
+          <tr data-dia="Domingo" class="highlight">
+            <td data-i18n="sunday">Domingo</td>
+            <td>5:00 PM</td>
+            <td>11:00 PM</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="estado-horario" class="estado-horario"></div>
+    </div>
+  </div>
+
+  <section class="ubicacion">
+    <h2 data-i18n="location">📍 Nuestra Ubicación</h2>
+    <p data-i18n="location_text">Encuéntranos en el corazón de Toronto. ¡Ven a visitarnos!</p>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5763.292500654737!2d-79.4220289880967!3d43.75944224543204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b2d7c2b7a13cd%3A0xd89544154be28d34!2s173%20Sheppard%20Ave%20W%2C%20North%20York%2C%20ON%20M2N%201M9!5e0!3m2!1ses-419!2sca!4v1749055995611!5m2!1ses-419!2sca" 
+     width="100%" height="450" style="border:0;" allowfullscreen loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p data-i18n="footer_text">&copy; 2025 HONEY FOOD | Colombian Street Food in Toronto | Made with ❤️ by entrepreneurs</p>
+  </footer>
+  <script src="language.js"></script>
+<script>
+  function toggleMobileMenu() {
+    document.getElementById('mobile-menu').classList.toggle('hidden');
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // 1. Traducciones
+    const lang = localStorage.getItem("language") || "es"; // idioma predeterminado español
+    if (typeof translations1 === "undefined") {
+      console.error("Error: 'translations1' no está definido. Revisa que 'language.js' cargue correctamente.");
+      return;
+    }
+    const t = translations1[lang] || translations1["es"];
+
+    // Traducir elementos con data-i18n
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (t[key]) el.innerHTML = t[key];
+    });
+
+    // Traducir placeholders con data-i18n-placeholder
+    document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+      const key = el.getAttribute("data-i18n-placeholder");
+      if (t[key]) el.placeholder = t[key];
+    });
+
+    // 2. Resaltar fila actual en la tabla
+    const diasSemana = [
+      "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"
+    ];
+    const hoy = new Date().getDay();
+    const diaActual = diasSemana[hoy];
+
+    const filas = document.querySelectorAll("table tbody tr");
+    filas.forEach(fila => {
+      if (fila.dataset.dia === diaActual) {
+        fila.classList.add("highlight-today");
+        const primerTD = fila.querySelector("td");
+        if (primerTD && !primerTD.querySelector(".badge-hoy")) {
+          primerTD.innerHTML += ` <span class="badge-hoy">📅 HOY</span>`;
+        }
+      }
+    });
+
+    // 3. Estado horario de apertura
+    const estadoDiv = document.getElementById("estado-horario");
+
+    const horarios = {
+      "Viernes": { apertura: "17:00", cierre: "23:00" },
+      "Sábado": { apertura: "17:00", cierre: "23:00" },
+      "Domingo": { apertura: "17:00", cierre: "23:00" },
+    };
+
+    if (!horarios[diaActual]) {
+      estadoDiv.textContent = lang === "en" ? "We're closed today." : "Hoy estamos cerrados.";
+      estadoDiv.classList.add("cerrado");
+      return;
+    }
+
+    const ahora = new Date();
+
+    // Construimos fechas de apertura y cierre en base a hoy
+    const [horaApertura, minApertura] = horarios[diaActual].apertura.split(":");
+    const [horaCierre, minCierre] = horarios[diaActual].cierre.split(":");
+
+    const apertura = new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate(), horaApertura, minApertura, 0);
+    const cierre = new Date(ahora.getFullYear(), ahora.getMonth(), ahora.getDate(), horaCierre, minCierre, 0);
+
+    if (ahora < apertura) {
+      const diff = apertura - ahora;
+      const horas = Math.floor(diff / (1000 * 60 * 60));
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      estadoDiv.innerHTML = (lang === "en")
+        ? `🕒 We open in <strong>${horas}h ${minutos}min</strong>`
+        : `🕒 Abrimos en <strong>${horas}h ${minutos}min</strong>`;
+      estadoDiv.classList.remove("abierto", "cerrado");
+      estadoDiv.classList.add("proximamente");
+    } else if (ahora >= apertura && ahora < cierre) {
+      const diff = cierre - ahora;
+      const horas = Math.floor(diff / (1000 * 60 * 60));
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      estadoDiv.innerHTML = (lang === "en")
+        ? `🟢 We're open. Closing in <strong>${horas}h ${minutos}min</strong>`
+        : `🟢 Estamos abiertos. Cerramos en <strong>${horas}h ${minutos}min</strong>`;
+      estadoDiv.classList.remove("proximamente", "cerrado");
+      estadoDiv.classList.add("abierto");
+    } else {
+      estadoDiv.textContent = (lang === "en")
+        ? "🔴 We already closed for today."
+        : "🔴 Ya cerramos por hoy.";
+      estadoDiv.classList.remove("proximamente", "abierto");
+      estadoDiv.classList.add("cerrado");
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
